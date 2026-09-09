@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #000000;
+  min-height: 100vh;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+#root {
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #22c55e, #16a34a);
+  border-radius: 4px;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4ade80, #22c55e);
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glass morphism card */
+.glass-card {
+  background: rgba(0, 20, 10, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.1), inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card-strong {
+  background: rgba(0, 15, 5, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.15), inset 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Neon glow text */
+.neon-text {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.neon-text-green {
+  color: #4ade80;
+  text-shadow: 0 0 10px #22c55e, 0 0 20px rgba(34, 197, 94, 0.6);
+}
+
+/* Neon button */
+.neon-button {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(16, 163, 74, 0.2));
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3), inset 0 0 15px rgba(34, 197, 94, 0.1);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(16, 163, 74, 0.4));
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.6), inset 0 0 20px rgba(34, 197, 94, 0.2);
+  border-color: rgba(74, 222, 128, 0.8);
+}
+
+.neon-button-solid {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: 1px solid #4ade80;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.neon-button-solid:hover {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.8);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.6);
+  }
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(34, 197, 94, 1), 0 0 30px rgba(34, 197, 94, 0.6);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-text-glow {
+  animation: text-glow 2s ease-in-out infinite;
+}
+
+/* Flashcard flip */
+.flashcard-flip {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flashcard-flip.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
