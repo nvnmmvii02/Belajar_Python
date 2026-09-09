@@ -50,8 +50,8 @@ function CodeBlock({ title, code, explanation }: { title: string; code: string; 
         <code>{code}</code>
       </pre>
       <div className="px-4 py-3 bg-green-50 border-t border-green-100">
-        <p className="text-sm text-green-800">
-          <span className="font-semibold">💡 Penjelasan:</span> {explanation}
+        <p className="text-sm text-gray-800">
+          <span className="font-semibold text-gray-900">💡 Penjelasan:</span> {explanation}
         </p>
       </div>
     </div>
@@ -68,7 +68,7 @@ function ContentBlock({ text }: { text: string }) {
         // Bold headers
         if (line.startsWith('**') && line.endsWith('**')) {
           return (
-            <h3 key={i} className="text-lg font-bold text-green-800 mt-4">
+            <h3 key={i} className="text-lg font-bold text-gray-900 mt-4">
               {line.replace(/\*\*/g, '')}
             </h3>
           );
@@ -76,11 +76,11 @@ function ContentBlock({ text }: { text: string }) {
         // Bold inline
         const parts = line.split(/(\*\*[^*]+\*\*)/g);
         return (
-          <p key={i} className="text-green-900 leading-relaxed text-[15px]">
+          <p key={i} className="text-gray-800 leading-relaxed text-[15px]">
             {parts.map((part, j) => {
               if (part.startsWith('**') && part.endsWith('**')) {
                 return (
-                  <strong key={j} className="font-semibold text-green-700">
+                  <strong key={j} className="font-semibold text-gray-900">
                     {part.slice(2, -2)}
                   </strong>
                 );
@@ -123,7 +123,7 @@ export default function LessonContent({ lesson }: LessonContentProps) {
 
       {/* Code Examples */}
       <div className="space-y-4">
-        <h2 className="text-xl font-bold text-green-800 flex items-center gap-2">
+        <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center text-lg">💻</span>
           Contoh Kode
         </h2>
@@ -139,19 +139,19 @@ export default function LessonContent({ lesson }: LessonContentProps) {
 
       {/* Quick Summary */}
       <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-5 border border-emerald-200 animate-fade-in-up">
-        <h3 className="font-bold text-emerald-800 mb-2 flex items-center gap-2">
+        <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
           <span>📌</span> Poin Penting
         </h3>
         <ul className="space-y-1.5">
           {lesson.flashcards.slice(0, 3).map((fc, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-emerald-700">
+            <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
               <span className="text-emerald-500 mt-0.5">•</span>
-              <span><strong>{fc.question}</strong> → {fc.answer}</span>
+              <span><strong className="text-gray-900">{fc.question}</strong> → {fc.answer}</span>
             </li>
           ))}
         </ul>
         <div className="mt-4 flex gap-2">
-          <p className="text-xs text-emerald-600 italic">
+          <p className="text-xs text-gray-600 italic">
             💡 Lanjut ke Flashcard untuk review, atau Kuis untuk menguji pemahamanmu!
           </p>
         </div>

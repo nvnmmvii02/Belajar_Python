@@ -85,8 +85,8 @@ export default function QuizView({ lesson, onComplete }: QuizViewProps) {
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-3xl font-bold text-green-800">{scorePercent}%</span>
-              <span className="text-xs text-green-600">{score}/{questions.length} benar</span>
+              <span className="text-3xl font-bold text-gray-800">{scorePercent}%</span>
+              <span className="text-xs text-gray-600">{score}/{questions.length} benar</span>
             </div>
           </div>
 
@@ -95,26 +95,26 @@ export default function QuizView({ lesson, onComplete }: QuizViewProps) {
             {scorePercent === 100 ? (
               <>
                 <div className="text-5xl mb-3">🏆</div>
-                <h2 className="text-2xl font-bold text-green-800">Sempurna!</h2>
-                <p className="text-green-600 mt-2">Kamu menguasai materi ini dengan sangat baik!</p>
+                <h2 className="text-2xl font-bold text-gray-800">Sempurna!</h2>
+                <p className="text-gray-600 mt-2">Kamu menguasai materi ini dengan sangat baik!</p>
               </>
             ) : scorePercent >= 70 ? (
               <>
                 <div className="text-5xl mb-3">🌟</div>
-                <h2 className="text-2xl font-bold text-green-800">Bagus Sekali!</h2>
-                <p className="text-green-600 mt-2">Pemahaman yang sangat baik! Terus tingkatkan!</p>
+                <h2 className="text-2xl font-bold text-gray-800">Bagus Sekali!</h2>
+                <p className="text-gray-600 mt-2">Pemahaman yang sangat baik! Terus tingkatkan!</p>
               </>
             ) : scorePercent >= 50 ? (
               <>
                 <div className="text-5xl mb-3">👍</div>
-                <h2 className="text-2xl font-bold text-green-800">Cukup Baik!</h2>
-                <p className="text-green-600 mt-2">Review kembali materi yang belum paham ya!</p>
+                <h2 className="text-2xl font-bold text-gray-800">Cukup Baik!</h2>
+                <p className="text-gray-600 mt-2">Review kembali materi yang belum paham ya!</p>
               </>
             ) : (
               <>
                 <div className="text-5xl mb-3">💪</div>
-                <h2 className="text-2xl font-bold text-green-800">Jangan Menyerah!</h2>
-                <p className="text-green-600 mt-2">Baca ulang materinya dan coba lagi. Kamu pasti bisa!</p>
+                <h2 className="text-2xl font-bold text-gray-800">Jangan Menyerah!</h2>
+                <p className="text-gray-600 mt-2">Baca ulang materinya dan coba lagi. Kamu pasti bisa!</p>
               </>
             )}
           </div>
@@ -165,11 +165,11 @@ export default function QuizView({ lesson, onComplete }: QuizViewProps) {
       {/* Header */}
       <div className="animate-fade-in-up">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="text-xl font-bold text-green-800 flex items-center gap-2">
+          <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
             <span className="text-2xl">✅</span>
             Kuis: {lesson.title}
           </h2>
-          <span className="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-lg">
+          <span className="text-sm font-medium text-gray-700 bg-green-100 px-3 py-1 rounded-lg">
             {currentQuestion + 1}/{questions.length}
           </span>
         </div>
@@ -196,10 +196,10 @@ export default function QuizView({ lesson, onComplete }: QuizViewProps) {
       {/* Question Card */}
       <div className="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-green-100 animate-fade-in-up">
         <div className="flex items-start gap-3 mb-5">
-          <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center text-sm font-bold text-green-700 flex-shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center text-sm font-bold text-gray-700 flex-shrink-0">
             {currentQuestion + 1}
           </div>
-          <p className="text-green-900 font-medium text-[15px] leading-relaxed whitespace-pre-line">
+          <p className="text-gray-900 font-medium text-[15px] leading-relaxed whitespace-pre-line">
             {question.question}
           </p>
         </div>
@@ -249,10 +249,10 @@ export default function QuizView({ lesson, onComplete }: QuizViewProps) {
                 </div>
                 <span className={`text-sm font-medium ${
                   showExplanation && index === question.correctIndex
-                    ? 'text-green-800'
+                    ? 'text-gray-800'
                     : showExplanation && index === selectedAnswer && index !== question.correctIndex
                     ? 'text-red-700'
-                    : 'text-green-900'
+                    : 'text-gray-900'
                 }`}>
                   {option}
                 </span>
@@ -322,8 +322,8 @@ export default function QuizView({ lesson, onComplete }: QuizViewProps) {
 
       {/* Score indicator */}
       <div className="text-center">
-        <p className="text-sm text-green-600">
-          Skor sementara: <span className="font-bold">{score}</span>/{answeredQuestions.length} benar
+        <p className="text-sm text-gray-600">
+          Skor sementara: <span className="font-bold text-gray-800">{score}</span>/{answeredQuestions.length} benar
         </p>
       </div>
     </div>

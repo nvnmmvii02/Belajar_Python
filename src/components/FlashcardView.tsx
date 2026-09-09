@@ -55,11 +55,11 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
     <div className="max-w-2xl mx-auto px-4 md:px-6 py-6 space-y-6">
       {/* Header */}
       <div className="text-center animate-fade-in-up">
-        <h2 className="text-xl font-bold text-green-800 flex items-center justify-center gap-2">
+        <h2 className="text-xl font-bold text-gray-800 flex items-center justify-center gap-2">
           <span className="text-2xl">🃏</span>
           Flashcard: {lesson.title}
         </h2>
-        <p className="text-sm text-green-600 mt-1">
+        <p className="text-sm text-gray-600 mt-1">
           Klik kartu untuk melihat jawaban • Tandai yang sudah paham
         </p>
       </div>
@@ -67,10 +67,10 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
       {/* Progress */}
       <div className="bg-white rounded-xl p-3 border border-green-100 shadow-sm">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-medium text-green-700">
+          <span className="text-xs font-medium text-gray-700">
             Dikuasai: {knownCards.size}/{flashcards.length}
           </span>
-          <span className="text-xs font-bold text-green-600">{progressPercent}%</span>
+          <span className="text-xs font-bold text-gray-600">{progressPercent}%</span>
         </div>
         <div className="w-full h-2 bg-green-100 rounded-full overflow-hidden">
           <div
@@ -138,7 +138,7 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
       <div className="flex items-center justify-between gap-3">
         <button
           onClick={handlePrev}
-          className="flex items-center gap-1 px-4 py-2.5 rounded-xl bg-green-100 text-green-700 font-medium hover:bg-green-200 transition-all duration-200"
+          className="flex items-center gap-1 px-4 py-2.5 rounded-xl bg-green-100 text-gray-700 font-medium hover:bg-green-200 transition-all duration-200"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -149,7 +149,7 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
         <div className="flex items-center gap-2">
           <button
             onClick={handleShuffle}
-            className="px-3 py-2.5 rounded-xl bg-green-100 text-green-700 hover:bg-green-200 transition-all duration-200"
+            className="px-3 py-2.5 rounded-xl bg-green-100 text-gray-700 hover:bg-green-200 transition-all duration-200"
             title="Acak"
           >
             🔀
@@ -168,7 +168,7 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
 
         <button
           onClick={handleNext}
-          className="flex items-center gap-1 px-4 py-2.5 rounded-xl bg-green-100 text-green-700 font-medium hover:bg-green-200 transition-all duration-200"
+          className="flex items-center gap-1 px-4 py-2.5 rounded-xl bg-green-100 text-gray-700 font-medium hover:bg-green-200 transition-all duration-200"
         >
           Next
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,7 +191,7 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
                 ? 'bg-green-600 text-white scale-110 shadow-md'
                 : knownCards.has(i)
                 ? 'bg-emerald-400 text-white'
-                : 'bg-green-100 text-green-600 hover:bg-green-200'
+                : 'bg-green-100 text-gray-700 hover:bg-green-200'
             }`}
           >
             {knownCards.has(i) ? '✓' : i + 1}
@@ -203,8 +203,8 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
       {progressPercent === 100 && (
         <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-5 border border-emerald-200 text-center animate-fade-in-up">
           <div className="text-4xl mb-2">🎉</div>
-          <h3 className="font-bold text-emerald-800 text-lg">Luar Biasa!</h3>
-          <p className="text-emerald-600 text-sm mt-1">
+          <h3 className="font-bold text-gray-800 text-lg">Luar Biasa!</h3>
+          <p className="text-gray-600 text-sm mt-1">
             Kamu sudah menguasai semua flashcard di materi ini! Lanjut ke Kuis untuk menguji pemahaman.
           </p>
         </div>

@@ -76,7 +76,7 @@ function App() {
             </button>
             <div className="flex items-center gap-2">
               <span className="text-2xl">{currentLesson.icon}</span>
-              <h1 className="text-lg md:text-xl font-bold text-green-800 truncate">
+              <h1 className="text-lg md:text-xl font-bold text-gray-800 truncate">
                 {currentLesson.title}
               </h1>
             </div>
@@ -89,7 +89,7 @@ function App() {
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 viewMode === 'content'
                   ? 'bg-green-600 text-white shadow-md'
-                  : 'text-green-700 hover:bg-green-200/50'
+                  : 'text-gray-700 hover:bg-green-200/50'
               }`}
             >
               📖 Materi
@@ -99,7 +99,7 @@ function App() {
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 viewMode === 'flashcards'
                   ? 'bg-green-600 text-white shadow-md'
-                  : 'text-green-700 hover:bg-green-200/50'
+                  : 'text-gray-700 hover:bg-green-200/50'
               }`}
             >
               🃏 Flashcard
@@ -109,7 +109,7 @@ function App() {
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 viewMode === 'quiz'
                   ? 'bg-green-600 text-white shadow-md'
-                  : 'text-green-700 hover:bg-green-200/50'
+                  : 'text-gray-700 hover:bg-green-200/50'
               }`}
             >
               ✅ Kuis
@@ -141,7 +141,7 @@ function App() {
               if (prevId >= 1) handleLessonSelect(prevId);
             }}
             disabled={currentLessonId <= 1}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-green-100 text-green-700 font-medium hover:bg-green-200 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-green-100 text-gray-700 font-medium hover:bg-green-200 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -156,7 +156,7 @@ function App() {
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <span className="text-sm text-green-600 font-medium">{progress}%</span>
+            <span className="text-sm text-gray-600 font-medium">{progress}%</span>
           </div>
 
           <button
