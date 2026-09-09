@@ -55,26 +55,26 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
     <div className="max-w-2xl mx-auto px-4 md:px-6 py-6 space-y-6">
       {/* Header */}
       <div className="text-center animate-fade-in-up">
-        <h2 className="text-xl font-bold text-gray-800 flex items-center justify-center gap-2">
+        <h2 className="text-xl font-bold text-green-400 flex items-center justify-center gap-2 neon-text-green">
           <span className="text-2xl">🃏</span>
           Flashcard: {lesson.title}
         </h2>
-        <p className="text-sm text-gray-600 mt-1">
+        <p className="text-sm text-white/80 mt-1">
           Klik kartu untuk melihat jawaban • Tandai yang sudah paham
         </p>
       </div>
 
       {/* Progress */}
-      <div className="bg-white rounded-xl p-3 border border-green-100 shadow-sm">
+      <div className="glass-card rounded-xl p-3">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-medium text-gray-700">
+          <span className="text-xs font-medium text-white/90">
             Dikuasai: {knownCards.size}/{flashcards.length}
           </span>
-          <span className="text-xs font-bold text-gray-600">{progressPercent}%</span>
+          <span className="text-xs font-bold text-green-400 neon-text-green">{progressPercent}%</span>
         </div>
-        <div className="w-full h-2 bg-green-100 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-black/50 rounded-full overflow-hidden border border-green-500/30">
           <div
-            className="h-full bg-gradient-to-r from-emerald-400 to-green-500 rounded-full transition-all duration-500"
+            className="h-full bg-gradient-to-r from-green-400 to-emerald-500 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -96,37 +96,39 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
           >
             {/* Front */}
             <div
-              className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-6 flex flex-col items-center justify-center text-white shadow-xl"
+              className="absolute inset-0 glass-card-strong rounded-2xl p-6 flex flex-col items-center justify-center shadow-xl animate-pulse-glow"
               style={{ backfaceVisibility: 'hidden' }}
             >
-              <div className="absolute top-3 right-3 px-2 py-1 bg-white/20 rounded-lg text-xs font-medium">
+              <div className="absolute top-3 right-3 px-2 py-1 bg-green-500/20 border border-green-500/40 rounded-lg text-xs font-medium text-green-300">
                 {currentIndex + 1} / {flashcards.length}
               </div>
               <div className="text-4xl mb-4">❓</div>
-              <p className="text-center text-lg font-medium leading-relaxed">
+              <p className="text-center text-lg font-medium leading-relaxed text-white">
                 {currentCard.question}
               </p>
-              <p className="text-green-200 text-xs mt-4 animate-pulse-soft">
+              <p className="text-green-400/80 text-xs mt-4 animate-pulse">
                 👆 Tap untuk melihat jawaban
               </p>
             </div>
 
             {/* Back */}
             <div
-              className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-6 flex flex-col items-center justify-center text-white shadow-xl"
+              className="absolute inset-0 glass-card-strong rounded-2xl p-6 flex flex-col items-center justify-center shadow-xl"
               style={{
                 backfaceVisibility: 'hidden',
                 transform: 'rotateY(180deg)',
+                borderColor: 'rgba(74, 222, 128, 0.6)',
+                boxShadow: '0 0 30px rgba(34, 197, 94, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.4)',
               }}
             >
-              <div className="absolute top-3 right-3 px-2 py-1 bg-white/20 rounded-lg text-xs font-medium">
+              <div className="absolute top-3 right-3 px-2 py-1 bg-green-500/30 border border-green-400/60 rounded-lg text-xs font-medium text-green-300">
                 Jawaban
               </div>
               <div className="text-4xl mb-4">💡</div>
-              <p className="text-center text-lg font-medium leading-relaxed">
+              <p className="text-center text-lg font-medium leading-relaxed text-white">
                 {currentCard.answer}
               </p>
-              <p className="text-emerald-200 text-xs mt-4 animate-pulse-soft">
+              <p className="text-green-400/80 text-xs mt-4 animate-pulse">
                 👆 Tap untuk kembali ke pertanyaan
               </p>
             </div>
@@ -138,18 +140,18 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
       <div className="flex items-center justify-between gap-3">
         <button
           onClick={handlePrev}
-          className="flex items-center gap-1 px-4 py-2.5 rounded-xl bg-green-100 text-gray-700 font-medium hover:bg-green-200 transition-all duration-200"
+          className="flex items-center gap-1 px-4 py-2.5 rounded-xl neon-button font-medium"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          Prev
+          <span className="text-white">Prev</span>
         </button>
 
         <div className="flex items-center gap-2">
           <button
             onClick={handleShuffle}
-            className="px-3 py-2.5 rounded-xl bg-green-100 text-gray-700 hover:bg-green-200 transition-all duration-200"
+            className="px-3 py-2.5 rounded-xl neon-button"
             title="Acak"
           >
             🔀
@@ -158,8 +160,8 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
             onClick={handleKnown}
             className={`px-4 py-2.5 rounded-xl font-medium transition-all duration-200 ${
               knownCards.has(currentIndex)
-                ? 'bg-emerald-500 text-white shadow-md'
-                : 'bg-green-600 text-white hover:bg-green-700 shadow-md'
+                ? 'bg-gradient-to-r from-green-400 to-emerald-500 text-white shadow-[0_0_20px_rgba(34,197,94,0.6)]'
+                : 'neon-button-solid'
             }`}
           >
             {knownCards.has(currentIndex) ? '✅ Sudah Paham!' : '👍 Sudah Paham'}
@@ -168,10 +170,10 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
 
         <button
           onClick={handleNext}
-          className="flex items-center gap-1 px-4 py-2.5 rounded-xl bg-green-100 text-gray-700 font-medium hover:bg-green-200 transition-all duration-200"
+          className="flex items-center gap-1 px-4 py-2.5 rounded-xl neon-button font-medium"
         >
-          Next
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span className="text-white">Next</span>
+          <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -188,10 +190,10 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
             }}
             className={`w-8 h-8 rounded-lg text-xs font-bold transition-all duration-200 ${
               i === currentIndex
-                ? 'bg-green-600 text-white scale-110 shadow-md'
+                ? 'bg-gradient-to-br from-green-400 to-emerald-500 text-white scale-110 shadow-[0_0_15px_rgba(34,197,94,0.6)]'
                 : knownCards.has(i)
-                ? 'bg-emerald-400 text-white'
-                : 'bg-green-100 text-gray-700 hover:bg-green-200'
+                ? 'bg-gradient-to-br from-green-500 to-emerald-600 text-white shadow-[0_0_10px_rgba(34,197,94,0.4)]'
+                : 'glass-card text-green-400 hover:border-green-400/60'
             }`}
           >
             {knownCards.has(i) ? '✓' : i + 1}
@@ -201,10 +203,10 @@ export default function FlashcardView({ lesson }: FlashcardViewProps) {
 
       {/* Completion Message */}
       {progressPercent === 100 && (
-        <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-5 border border-emerald-200 text-center animate-fade-in-up">
+        <div className="glass-card-strong rounded-2xl p-5 text-center animate-fade-in-up animate-pulse-glow">
           <div className="text-4xl mb-2">🎉</div>
-          <h3 className="font-bold text-gray-800 text-lg">Luar Biasa!</h3>
-          <p className="text-gray-600 text-sm mt-1">
+          <h3 className="font-bold text-green-400 text-lg neon-text-green">Luar Biasa!</h3>
+          <p className="text-white/90 text-sm mt-1">
             Kamu sudah menguasai semua flashcard di materi ini! Lanjut ke Kuis untuk menguji pemahaman.
           </p>
         </div>

@@ -21,44 +21,44 @@ export default function Sidebar({
 }: SidebarProps) {
   return (
     <aside
-      className={`fixed lg:relative z-40 h-full w-72 flex flex-col bg-gradient-to-b from-green-800 via-green-900 to-emerald-900 text-white transition-transform duration-300 ease-in-out ${
+      className={`fixed lg:relative z-40 h-full w-72 flex flex-col glass-card-strong transition-transform duration-300 ease-in-out ${
         isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
       }`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-4 border-b border-green-700/50">
+      <div className="flex items-center justify-between px-5 py-4 border-b border-green-500/30">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-xl shadow-lg">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-xl shadow-[0_0_20px_rgba(34,197,94,0.6)]">
             🐍
           </div>
           <div>
-            <h1 className="font-bold text-lg leading-tight">PyLearn</h1>
-            <p className="text-xs text-green-300">Python dari Nol</p>
+            <h1 className="font-bold text-lg leading-tight text-white neon-text">PyLearn</h1>
+            <p className="text-xs text-green-400">Python Matrix Edition</p>
           </div>
         </div>
         <button
           onClick={onClose}
-          className="lg:hidden p-1.5 rounded-lg hover:bg-green-700/50 transition-colors"
+          className="lg:hidden p-1.5 rounded-lg hover:bg-green-500/20 transition-colors"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
       {/* Progress */}
-      <div className="px-5 py-3 border-b border-green-700/50">
+      <div className="px-5 py-3 border-b border-green-500/30">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-medium text-green-300">Progress Belajar</span>
-          <span className="text-xs font-bold text-green-300">{progress}%</span>
+          <span className="text-xs font-medium text-green-400">Progress Belajar</span>
+          <span className="text-xs font-bold text-green-300 neon-text-green">{progress}%</span>
         </div>
-        <div className="w-full h-2 bg-green-950 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-black/50 rounded-full overflow-hidden border border-green-500/30">
           <div
-            className="h-full bg-gradient-to-r from-green-400 to-emerald-400 rounded-full transition-all duration-700 ease-out"
+            className="h-full bg-gradient-to-r from-green-400 to-emerald-400 rounded-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(34,197,94,0.8)]"
             style={{ width: `${progress}%` }}
           />
         </div>
-        <p className="text-xs text-green-400 mt-1.5">
+        <p className="text-xs text-green-400/80 mt-1.5">
           {completedLessons.length}/{lessons.length} materi selesai
         </p>
       </div>
@@ -76,18 +76,18 @@ export default function Sidebar({
                 onClick={() => onSelectLesson(lesson.id)}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200 group ${
                   isCurrent
-                    ? 'bg-green-600/30 border border-green-500/30 shadow-lg'
-                    : 'hover:bg-green-700/30'
+                    ? 'neon-button shadow-lg'
+                    : 'hover:bg-green-500/10'
                 }`}
               >
                 {/* Number/Status */}
                 <div
                   className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0 transition-all duration-200 ${
                     isCompleted
-                      ? 'bg-emerald-500 text-white'
+                      ? 'bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-[0_0_10px_rgba(34,197,94,0.6)]'
                       : isCurrent
-                      ? 'bg-green-500 text-white'
-                      : 'bg-green-800/50 text-green-400 group-hover:bg-green-700/50'
+                      ? 'bg-gradient-to-br from-green-500 to-green-600 text-white shadow-[0_0_10px_rgba(34,197,94,0.6)]'
+                      : 'bg-black/50 text-green-400 border border-green-500/30 group-hover:border-green-400/60'
                   }`}
                 >
                   {isCompleted ? (
@@ -105,7 +105,7 @@ export default function Sidebar({
                     <span className="text-sm">{lesson.icon}</span>
                     <span
                       className={`text-sm font-medium truncate ${
-                        isCurrent ? 'text-white' : 'text-green-100'
+                        isCurrent ? 'text-white' : 'text-white/80 group-hover:text-white'
                       }`}
                     >
                       {lesson.title}
@@ -119,10 +119,10 @@ export default function Sidebar({
       </nav>
 
       {/* Footer */}
-      <div className="px-5 py-3 border-t border-green-700/50">
+      <div className="px-5 py-3 border-t border-green-500/30">
         <div className="flex items-center gap-2 text-xs text-green-400">
-          <span>💚</span>
-          <span>Terus belajar, kamu pasti bisa!</span>
+          <span className="animate-text-glow">💚</span>
+          <span className="text-white/80">Wake up, Neo... Learn Python.</span>
         </div>
       </div>
     </aside>
